@@ -5,7 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class Window {
-    static JTextField tf;
+    static JTextField a;
+    static JTextField b;
+    static JTextField c;
+
     static public void createWindow() {
         JFrame frame = new JFrame("My First GUI");
         JTextField jTextField = new JTextField();
@@ -14,8 +17,12 @@ public class Window {
         JLabel label = new JLabel("Enter Text");
         frame.getContentPane().add(BorderLayout.SOUTH, panel);
         button1.setText("Button1");
-        tf = new JTextField(10); // accepts upto 10 characters
-        panel.add(tf);
+        a = new JTextField(10); // accepts upto 10 characters
+        b = new JTextField(10); // accepts upto 10 characters
+        c = new JTextField(10); // accepts upto 10 characters
+        panel.add(a);
+        panel.add(b);
+        panel.add(c);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 300);
@@ -24,9 +31,10 @@ public class Window {
     }
 }
 
-class CustomAction extends AbstractAction{
+class CustomAction extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println( new Calculator().getDoubletValue(Double.valueOf(Window.tf.getText())) );
+        System.out.println(new Calculator().getDoubletValue(Double.valueOf(Window.a.getText()),
+                Double.valueOf(Window.b.getText()), Double.valueOf(Window.c.getText())));
     }
 }
